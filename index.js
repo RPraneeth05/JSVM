@@ -57,5 +57,29 @@ const RET = 0x60;
 const HLT = 0xFF;
 
 const createMemory = sizeInBytes => {
+   const ab = new ArrayBuffer(sizeInBytes);
+   const dv = new DataView(ab);
+   return dv;
+}
 
+const registerNames = [
+   'ip', 'ac',
+   'r1', 'r2', 'r3', 'r4',
+   'r5', 'r6', 'r7', 'r8',
+   'sp', 'fp'
+]
+
+class CPU {
+   constructor(memory) {
+      this.memory = memory;
+      this.registerNames = registerNames;
+      this.registers = createMemory(this.registerNames.length * 2);
+      this.registerMap = this.registerNames.reduce((map, name, i) => {
+         map[name] = i * 2;
+         return map;
+      }, {});
+      this.setRegister('sp', 0xFFFE);
+      this.setRegister('fp', 0xFFFE);
+      this.stackFrameSize = 0;
+   }
 }
