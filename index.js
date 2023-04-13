@@ -743,21 +743,19 @@ let i = 0;
 // wb[i++] = HLT;
 // cpu.run();
 
-
-
-wb[i++] = ;
-wb[i++] = ;
-wb[i++] = ;
-wb[i++] = ;
-wb[i++] = ;
-wb[i++] = ;
-wb[i++] = ;
-wb[i++] = ;
-wb[i++] = ;
-wb[i++] = ;
-wb[i++] = ;
-wb[i++] = ;
-wb[i++] = ;
+wb[i++] = MOV_LIT_REG;
+wb[i++] = 0x00;
+wb[i++] = 0x01;
+wb[i++] = R1;
+wb[i++] = MOV_LIT_REG;
+wb[i++] = 0x00;
+wb[i++] = 0x02;
+wb[i++] = R2;
+wb[i++] = ADD_REG_REG;
+wb[i++] = R1;
+wb[i++] = R2;
+// wb[i++] = ;
+// wb[i++] = ;
 
 // DEBUGGING CODE
 
